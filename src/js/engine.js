@@ -1,18 +1,25 @@
 // iniciaremos criando uma const com os as figuras que precisamo 3 e qi iniciaremos //
 // nessa const criamos o array das imagem ela nao e alterada //
 const personagens =[
-    "romeu",
-    "ninja", 
-    "ninja",
-    "larga",
-    "larga",
-    "couja",
-    "couja",
-    "Gato",
-    "Gato",
-    "lunar",
-    "lunar",
-    "romeu"
+    'romeu',
+
+    'ninja',
+
+    'ninja',
+
+    'larga',
+
+    'larga',
+
+    'couja',
+
+    'couja',
+
+    'Gato',
+        'Gato',
+        'lunar',
+    'lunar',
+    'romeu'
 ];
 
 // criaremos agora uma let que vai deixa os elementos aberto//
@@ -26,12 +33,18 @@ let shufflPersonagen = personagens.sort(() => (Math.random( ) > 0.5 ) ? 2 : -1 )
 
 // esse for aqui ele vai percorre o comprimento da var e enquanto o i for menor que o compimento ele vai adicionando mais um e embaixa criamos a var box e nela colomcamos a parte que cria a div . em baixa nos dizemos qual vai ser a class a ser criada e depoisdirencionamos o valor a aela com a posição do index e no fim dizemos que queros adicionar essa div a cassa game //
 for (let i=0; i<personagens.length; i++){
-    let box = document.createElement("div");
-    box.className = "intem";
-    box.innerHTML = shufflPersonagen[i];
-    box.onclick = handleClick; 
-    document.querySelector(".game").appendChild(box);
+    let card = document.createElement("div");
+    let imagem = document.createElement("img");
+    card.className = 'intem';
+    document.querySelector('.game').appendChild(card); 
+  
+    card.onclick = handleClick; 
+    imagem.src = `./src/imagen/${shufflPersonagen[i]}.jpg`; // Substitua pelo caminho correto
+    card.appendChild(imagem);
+    imagem.width = 100;
+    imagem.height = 100;
 }
+
 
 function handleClick() {
     if(openCards.length < 2 ){
@@ -58,6 +71,3 @@ function checkMatch(){
         alert("voce venceu!");
 }
 }
-
-
-  
