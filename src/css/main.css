@@ -1,0 +1,97 @@
+body{
+    /* aqui definimos o padrão do body que se o nome e alto explicativo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fc1e8a;
+
+}
+.container{
+    /* aqui na class container deixamos a possição realtiva podemos mudar a possição da div pela pagina deixamos ela flex para alinhamos o intes dentro da div e determinanmos os intem em posição de coluna demos um gap para afasta e definimos um background */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: rgb(3,0,30);
+    background: linear-gradient(210deg, #03001e 0%, #7303c0 30%, #e538bc 70% , #fdeff9  100%);
+    padding:  10px 50px;
+    box-shadow: 10px 50px 100px #000;
+    border-radius: 26px;
+    border: none;
+}
+h2 { 
+    /* aqui determinamos o h2 da forma que com ela fique com a largura de 100% da caixa e a cor e o espacamento das letras */
+    font-size: 3em;
+    width: 100%;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-bottom:-15px;
+}
+
+.reset{
+    /* aqui vamos definir o botton sendo o que vamos fazer algo novo para relembra e apenas o peso da fonte o curso que ira se tranforma assim que passarmos por cima  */
+    padding: 10px;
+    width: 100%;
+    color: #000;
+    background: #fff;
+    border-style: hidden;
+    font-size: 1.8em;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bolder;
+    text-shadow: 1px 1px 0px #7303c0;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+.reset:focus{
+    /* poderia ser o hover mais o hover e apenas para quando passarmos por cima ele mudar da o efeito de transição , mais o focus ele e apenas quando clincar  */
+    color: #7303c0;
+    background: #000;
+}
+.game{
+    /* criamos aqui a classe que vai ter o a caixa do jogo onde vamos criar dinamicamente no js as cartas , fica explicito que iremos apenas criar a caixa e nao os espaços das cartas  vamos cria um tamanho de altura e largura  */
+    width: 500px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    transform-style:preserve-3d ;
+    perspective: 500px;
+}
+.intem { 
+    position: relative;
+    width: 110px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    font-size: 2rem;
+    transform: rotateY(180deg); 
+    transition: 0.25s;
+
+}
+.intem::after{
+    content: "";
+    position: absolute;
+    inset:0;
+    background: #404040;
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+.intem.boxOpen{
+    transform: rotateY(0deg);
+
+}
+
+.boxOpen::after{
+    transform: rotateY(180deg);
+    
+}
