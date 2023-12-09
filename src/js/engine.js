@@ -11,9 +11,9 @@ const personagens =[
 
     'larga',
 
-    'couja',
+    'coruja',
 
-    'couja',
+    'coruja',
 
     'Gato',
         'Gato',
@@ -39,10 +39,9 @@ for (let i=0; i<personagens.length; i++){
     document.querySelector('.game').appendChild(card); 
   
     card.onclick = handleClick; 
-    imagem.src = `./src/imagen/${shufflPersonagen[i]}.jpg`; // Substitua pelo caminho correto
+    card.style.backgroundImage = `url("./src/imagen/${shufflPersonagen[i]}.jpg")`;
     card.appendChild(imagem);
-    imagem.width = 100;
-    imagem.height = 100;
+     
 }
 
 
@@ -58,7 +57,7 @@ function handleClick() {
     }
 }
 function checkMatch(){
-    if ( openCards[0].innerHTML === openCards[1].innerHTML){
+     if (openCards[0].style.backgroundImage === openCards[1].style.backgroundImage) {
         openCards[0].classList.add("boxMatch");
     }else{
         openCards[0].classList.remove("boxOpen");
@@ -67,7 +66,7 @@ function checkMatch(){
 
     openCards=[];
 
-    if(document.querySelectorAll("boxMarch").length === emojis.length){
-        alert("voce venceu!");
-}
+    if (document.querySelectorAll("boxMatch").length === personagens.length) {
+        alert("Você venceu!");
+    }
 }
